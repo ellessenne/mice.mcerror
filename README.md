@@ -13,7 +13,7 @@ multiply imputed data.
 
 ## Installation
 
-You can install the development version of `mice.mcerror` from
+You can install the development version of {mice.mcerror} from
 [GitHub](https://github.com/) with:
 
 ``` r

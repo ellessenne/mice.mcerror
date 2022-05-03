@@ -22,7 +22,7 @@ The {mice.mcerror} package is an add-on package to {[mice](https://CRAN.R-projec
 
 ## Installation
 
-You can install the development version of `mice.mcerror` from [GitHub](https://github.com/) with:
+You can install the development version of {mice.mcerror} from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
