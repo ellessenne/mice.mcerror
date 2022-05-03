@@ -16,7 +16,7 @@ usethis::use_data(mheart1s20, overwrite = TRUE)
 # Same data in `mids` format
 mheart1s20.0 <- dplyr::filter(mheart1s20, X_mi_m == 0)
 mheart1s20.gt0 <- dplyr::filter(mheart1s20, X_mi_m > 0)
-imp2 <- map(.x = which(!grepl(pattern = "X_", x = names(mheart1s20.gt0))), .f = function(nc) {
+imp <- purrr::map(.x = which(!grepl(pattern = "X_", x = names(mheart1s20.gt0))), .f = function(nc) {
   idx <- mheart1s20.0$X_mi_id[is.na(mheart1s20.0[, nc])]
   out <- do.call(cbind.data.frame, map(.x = seq(max(mheart1s20.gt0$X_mi_m)), .f = function(m) {
     mheart1s20.gt0[mheart1s20.gt0[, "X_mi_id"] == idx & mheart1s20.gt0[, "X_mi_m"] == m, nc, drop = F]
@@ -24,11 +24,11 @@ imp2 <- map(.x = which(!grepl(pattern = "X_", x = names(mheart1s20.gt0))), .f = 
   names(out) <- seq(max(mheart1s20.gt0$X_mi_m))
   out
 })
-names(imp2) <- names(mheart1s20.gt0)[which(!grepl(pattern = "X_", x = names(mheart1s20.gt0)))]
+names(imp) <- names(mheart1s20.gt0)[which(!grepl(pattern = "X_", x = names(mheart1s20.gt0)))]
 mheart1s20.0 <- dplyr::select(mheart1s20.0, -dplyr::starts_with("X_"))
 mheart1s20.mice <- list(
   data = mheart1s20.0,
-  imp = imp2,
+  imp = imp,
   m = max(mheart1s20$X_mi_m),
   where = as.matrix(is.na(mheart1s20.0)),
   nmis = colSums(x = as.matrix(is.na(mheart1s20.0)))
