@@ -3,6 +3,7 @@
 \docType{data}
 \name{mheart1s20}
 \alias{mheart1s20}
+\alias{mheart1s20.mice}
 \title{Fictional Heart Attack Data with Missing BMI}
 \format{
 A data frame with 594 rows and 9 variables:
@@ -17,9 +18,13 @@ A data frame with 594 rows and 9 variables:
 \item \code{X_mi_miss} Missingness indicator variable (from Stata's internal \code{mi} structure);
 \item \code{X_mi_m} Identifies each imputed dataset (from Stata's internal \code{mi} structure).
 }
+
+An object of class \code{mids} of length 5.
 }
 \usage{
 mheart1s20
+
+mheart1s20.mice
 }
 \description{
 Fictional heart attack data with missing BMI information, imported from Stata 17.
@@ -27,9 +32,12 @@ This dataset includes 20 multiply imputed copies of the same dataset, stacked on
 }
 \note{
 The original dataset with missingness consists of 154 patients and can be obtained by subsetting for \code{X_mi_m == 0}.
+
+A version of this dataset in \code{mids} format (for compatibility with {mice} is included).
 }
 \examples{
 data("mheart1s20", package = "mice.mcerror")
+data("mheart1s20.mice", package = "mice.mcerror")
 }
 \references{
 http://www.stata-press.com/data/r17/mheart1s20.dta

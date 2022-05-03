@@ -28,3 +28,24 @@ You can install the development version of {mice.mcerror} from [GitHub](https://
 # install.packages("devtools")
 devtools::install_github("ellessenne/mice.mcerror")
 ```
+
+# Comparison with Stata
+
+We replicate the following example from Stata:
+
+```stata
+use http://www.stata-press.com/data/r14/mheart1s20
+
+mi estimate, dots mcerror: logit attack smokes age bmi hsgrad female
+```
+
+```{r}
+library(mice)
+data("mheart1s20.mice")
+
+fit <- with(
+  data = mheart1s20.mice,
+  glm(attack ~ smokes + age + bmi + hsgrad + female, family = binomial(link = "logit"))
+)
+summary(pool(fit))
+```
