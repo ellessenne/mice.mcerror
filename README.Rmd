@@ -45,7 +45,10 @@ data("mheart1s20.mice")
 
 fit <- with(
   data = mheart1s20.mice,
-  glm(attack ~ smokes + age + bmi + hsgrad + female, family = binomial(link = "logit"))
+  expr = glm(
+    formula = attack ~ smokes + age + bmi + hsgrad + female,
+    family = binomial(link = "logit")
+  )
 )
 summary(pool(fit))
 ```
