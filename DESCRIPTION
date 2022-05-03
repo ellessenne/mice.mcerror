@@ -1,0 +1,32 @@
+Package: mice.mcerror
+Type: Package
+Title: Calculate Monte Carlo Error Estimates for Statistics Computed Using Multiply Imputed Data
+Version: 0.0.0-9000
+Authors@R: 
+    c(person(given = "Alessandro",
+             family = "Gasparini",
+             role = c("aut", "cre", "cph"),
+             email = "alessandro@ellessenne.xyz",
+             comment = c(ORCID = "0000-0002-8319-7624"))
+             )
+Description: Calculate Monte Carlo error estimates for statistics computed by pooling multiply 
+    imputed data. This package is an add-on to the {mice} package, which is thus required.
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+License: MIT + file LICENSE
+URL: https://ellessenne.github.io/mice.mcerror/
+BugReports: 
+    https://github.com/ellessenne/mice.mcerror/issues
+Depends:
+    R (>= 2.10),
+    mice
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
+ByteCompile: true
+Language: en-GB
