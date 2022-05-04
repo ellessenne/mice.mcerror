@@ -13,6 +13,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+Last updated: `r Sys.time()`
+
 # mice.mcerror
 
 <!-- badges: start -->
@@ -98,13 +100,13 @@ fit <- with(
 The pooled estimates can be obtained by using the `summary()` and `pool()` functions:
 
 ```{r}
-summary(pool(fit))
+summary(pool(fit), conf.int = TRUE)
 ```
 
 Analogously, Monte Carlo errors can be computed using the `summary()` and `mcerror()` functions:
 
 ```{r}
-summary(mcerror(fit))
+summary(mcerror(fit), conf.int = TRUE)
 ```
 
 Calling just `pool()` and `mcerror()` returns a larger set of imputation statistics:
@@ -115,3 +117,37 @@ mcerror(fit)
 ```
 
 Compare this with results from Stata (displayed above) and see that they _should_ be the same!
+
+Additional statistics can be obtained in Stata as follows:
+
+```stata
+. mi estimate, vartable mcerror nocitable
+
+Multiple-imputation estimates                   Imputations       =         20
+Logistic regression
+
+Variance information
+------------------------------------------------------------------------------
+             |        Imputation variance                             Relative
+             |    Within   Between     Total       RVI       FMI    efficiency
+-------------+----------------------------------------------------------------
+      smokes |   .127048    .00094   .128035   .007765   .007711       .999615
+             |   .000559   .000211   .000613   .001744    .00172        .00009
+             |                                                  
+         age |   .000237   1.4e-06   .000238   .006245    .00621        .99969
+             |   8.6e-07   4.6e-07   1.1e-06   .002054   .002033       .000107
+             |                                                  
+         bmi |   .001964   .000289   .002267   .154545   .135487       .993271
+             |   .000026   .000077   .000085    .04134   .031986        .00166
+             |                                                  
+      hsgrad |   .162206   .001675   .163965   .010843   .010739       .999463
+             |   .000521   .000552   .000827   .003579   .003516       .000185
+             |                                                  
+      female |   .172187   .001203    .17345   .007338    .00729       .999636
+             |   .000614   .000297   .000773   .001811   .001788       .000094
+             |                                                  
+       _cons |    2.5946   .233211   2.83948   .094377   .086953       .995671
+             |   .029651   .070081   .083436   .028332   .024216       .001263
+------------------------------------------------------------------------------
+Note: Values displayed beneath estimates are Monte Carlo error estimates.
+```

@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+Last updated: 2022-05-04 15:38:02
+
 # mice.mcerror
 
 <!-- badges: start -->
@@ -101,7 +103,7 @@ The pooled estimates can be obtained by using the `summary()` and
 `pool()` functions:
 
 ``` r
-summary(pool(fit))
+summary(pool(fit), conf.int = TRUE)
 #>          term    estimate  std.error  statistic       df     p.value
 #> 1 (Intercept) -5.47814267 1.68507424 -3.2509800 126.8211 0.001473199
 #> 2      smokes  1.19859490 0.35781943  3.3497199 144.8489 0.001031456
@@ -109,13 +111,20 @@ summary(pool(fit))
 #> 4         bmi  0.10394161 0.04761362  2.1830229 113.0103 0.031102235
 #> 5      hsgrad  0.15789925 0.40492566  0.3899463 144.3469 0.697151071
 #> 6      female -0.10674329 0.41647344 -0.2563028 144.9173 0.798080548
+#>          2.5 %     97.5 %
+#> 1 -8.812645721 -2.1436396
+#> 2  0.491373044  1.9058167
+#> 3  0.005499680  0.0665321
+#> 4  0.009610547  0.1982727
+#> 5 -0.642450426  0.9582489
+#> 6 -0.929890162  0.7164036
 ```
 
 Analogously, Monte Carlo errors can be computed using the `summary()`
 and `mcerror()` functions:
 
 ``` r
-summary(mcerror(fit))
+summary(mcerror(fit), conf.int = TRUE)
 #>          term     estimate    std.error  statistic        df      p.value
 #> 1 (Intercept) 0.1079841257 0.0248274274 0.06805349 6.7080984 3.272287e-04
 #> 2      smokes 0.0068540746 0.0008562227 0.01391383 0.2809890 4.807809e-05
@@ -167,3 +176,37 @@ mcerror(fit)
 
 Compare this with results from Stata (displayed above) and see that they
 *should* be the same!
+
+Additional statistics can be obtained in Stata as follows:
+
+``` stata
+. mi estimate, vartable mcerror nocitable
+
+Multiple-imputation estimates                   Imputations       =         20
+Logistic regression
+
+Variance information
+------------------------------------------------------------------------------
+             |        Imputation variance                             Relative
+             |    Within   Between     Total       RVI       FMI    efficiency
+-------------+----------------------------------------------------------------
+      smokes |   .127048    .00094   .128035   .007765   .007711       .999615
+             |   .000559   .000211   .000613   .001744    .00172        .00009
+             |                                                  
+         age |   .000237   1.4e-06   .000238   .006245    .00621        .99969
+             |   8.6e-07   4.6e-07   1.1e-06   .002054   .002033       .000107
+             |                                                  
+         bmi |   .001964   .000289   .002267   .154545   .135487       .993271
+             |   .000026   .000077   .000085    .04134   .031986        .00166
+             |                                                  
+      hsgrad |   .162206   .001675   .163965   .010843   .010739       .999463
+             |   .000521   .000552   .000827   .003579   .003516       .000185
+             |                                                  
+      female |   .172187   .001203    .17345   .007338    .00729       .999636
+             |   .000614   .000297   .000773   .001811   .001788       .000094
+             |                                                  
+       _cons |    2.5946   .233211   2.83948   .094377   .086953       .995671
+             |   .029651   .070081   .083436   .028332   .024216       .001263
+------------------------------------------------------------------------------
+Note: Values displayed beneath estimates are Monte Carlo error estimates.
+```
