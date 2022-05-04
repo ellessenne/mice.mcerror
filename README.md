@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-Last updated: 2022-05-04 15:44:31
+Last updated: 2022-05-04 15:52:44
 
 # mice.mcerror
 
@@ -10,6 +10,8 @@ Last updated: 2022-05-04 15:44:31
 [![Codecov test
 coverage](https://codecov.io/gh/ellessenne/mice.mcerror/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ellessenne/mice.mcerror?branch=main)
 [![R-CMD-check](https://github.com/ellessenne/mice.mcerror/workflows/R-CMD-check/badge.svg)](https://github.com/ellessenne/mice.mcerror/actions)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The {mice.mcerror} package is an add-on package to
@@ -21,6 +23,9 @@ Note that the Monte Carlo error estimate of an MI statistic is defined
 as the standard error of the mean of the pseudo-values for that
 statistic, computed by omitting one imputation at a time (i.e., using
 the jackknife).
+
+> *Warning:* this package is still experimental, so please test it out
+> and find where it breaks!
 
 ## Installation
 
