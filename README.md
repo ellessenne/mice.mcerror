@@ -11,6 +11,11 @@ The {mice.mcerror} package is an add-on package to
 calculate Monte Carlo error estimates for statistics computed using
 multiply imputed data.
 
+Note that the Monte Carlo error estimate of an MI statistic is defined
+as the standard error of the mean of the pseudo-values for that
+statistic, computed by omitting one imputation at a time (i.e., using
+the jackknife).
+
 ## Installation
 
 You can install the development version of {mice.mcerror} from
