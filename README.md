@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-Last updated: 2022-05-04 15:52:44
+Last updated: 2022-05-04 16:02:58
 
 # mice.mcerror
 
@@ -37,7 +37,7 @@ You can install the development version of {mice.mcerror} from
 devtools::install_github("ellessenne/mice.mcerror")
 ```
 
-# Comparison with Stata
+# Workflow
 
 We replicate the following example from Stata:
 

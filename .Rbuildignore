@@ -7,3 +7,4 @@
 ^Makefile$
 ^codecov\.yml$
 ^\.github$
+^\.DS_Store$

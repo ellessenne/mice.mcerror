@@ -40,7 +40,7 @@ You can install the development version of {mice.mcerror} from [GitHub](https://
 devtools::install_github("ellessenne/mice.mcerror")
 ```
 
-# Comparison with Stata
+# Workflow
 
 We replicate the following example from Stata:
 
