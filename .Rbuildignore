@@ -5,3 +5,5 @@
 ^testing\.R$
 ^data-raw$
 ^Makefile$
+^codecov\.yml$
+^\.github$

@@ -1,11 +1,15 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-Last updated: 2022-05-04 15:39:52
+Last updated: 2022-05-04 15:44:31
 
 # mice.mcerror
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/ellessenne/mice.mcerror/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ellessenne/mice.mcerror?branch=main)
+[![R-CMD-check](https://github.com/ellessenne/mice.mcerror/workflows/R-CMD-check/badge.svg)](https://github.com/ellessenne/mice.mcerror/actions)
 <!-- badges: end -->
 
 The {mice.mcerror} package is an add-on package to

@@ -19,6 +19,8 @@ Last updated: `r Sys.time()`
 # mice.mcerror
 
 <!-- badges: start -->
+[![Codecov test coverage](https://codecov.io/gh/ellessenne/mice.mcerror/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ellessenne/mice.mcerror?branch=main)
+[![R-CMD-check](https://github.com/ellessenne/mice.mcerror/workflows/R-CMD-check/badge.svg)](https://github.com/ellessenne/mice.mcerror/actions)
 <!-- badges: end -->
 
 The {mice.mcerror} package is an add-on package to {[mice](https://CRAN.R-project.org/package=mice)} that can be used to calculate Monte Carlo error estimates for statistics computed using multiply imputed data.

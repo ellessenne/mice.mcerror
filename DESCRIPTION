@@ -23,6 +23,7 @@ Depends:
     R (>= 2.10),
     mice
 Suggests:
+    covr,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
