@@ -4,3 +4,4 @@
 ^README\.Rmd$
 ^testing\.R$
 ^data-raw$
+^Makefile$
