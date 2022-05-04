@@ -1,8 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-Last updated: 2022-05-04 16:02:58
-
 # mice.mcerror
 
 <!-- badges: start -->

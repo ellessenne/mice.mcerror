@@ -52,16 +52,16 @@ library(mice)
 library(mice.mcerror)
 data("mheart1s20.mice")
 fit <- with(
-   data = mheart1s20.mice,
-   expr = glm(
-     formula = attack ~ smokes + age + bmi + hsgrad + female,
-     family = binomial(link = "logit")
-   )
- )
+  data = mheart1s20.mice,
+  expr = glm(
+    formula = attack ~ smokes + age + bmi + hsgrad + female,
+    family = binomial(link = "logit")
+  )
+)
 
- mce <- mcerror(fit)
+mce <- mcerror(fit)
 
- mce
+mce
 
- summary(mce)
+summary(mce)
 }
