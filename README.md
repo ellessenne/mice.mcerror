@@ -131,7 +131,7 @@ Analogously, Monte Carlo errors can be computed using the `summary()`
 and `mcerror()` functions:
 
 ``` r
-summary(mcerror(fit), conf.int = TRUE)
+summary(mcerror(fit, conf.int = TRUE))
 #>          term     estimate    std.error  statistic        df       p.value
 #> 1 (Intercept) 0.1079841257 0.0248274274 0.06805349 6.7080984 0.00032722871
 #> 2      smokes 0.0068540746 0.0008562227 0.01391383 0.2809890 0.00004807809
@@ -139,8 +139,19 @@ summary(mcerror(fit), conf.int = TRUE)
 #> 4         bmi 0.0038014054 0.0008904166 0.08508803 9.4563780 0.00635632037
 #> 5      hsgrad 0.0091516583 0.0010209042 0.02227213 0.5925768 0.01642837575
 #> 6      female 0.0077566042 0.0009278750 0.01893419 0.2898725 0.01458706658
+#>          2.5 %       97.5 %
+#> 1 0.1316683007 0.1054559344
+#> 2 0.0056513343 0.0082327301
+#> 3 0.0002316721 0.0003113505
+#> 4 0.0040131834 0.0044262971
+#> 5 0.0086262387 0.0100703702
+#> 6 0.0069763719 0.0088573528
 #> Note: Values displayed are Monte Carlo error estimates.
 ```
+
+Please note that with `mcerror()` we need to use the argument
+`conf.int = TRUE` in the inner function, as we need to compute
+confidence intervals for each jackknife replicate.
 
 Calling just `pool()` and `mcerror()` returns a larger set of imputation
 statistics:
@@ -162,7 +173,7 @@ pool(fit)
 #> 4 113.0103 0.154545511 0.133858310 0.14879046
 #> 5 144.3469 0.010843064 0.010726753 0.02415456
 #> 6 144.9173 0.007337752 0.007284302 0.02070688
-mcerror(fit)
+mcerror(fit, conf.int = TRUE)
 #> Class: mimcerror    m = 20 
 #>          term     estimate            ubar               b              t
 #> 1 (Intercept) 0.1079841257 0.0296514752332 0.0700813711255 0.083436110077

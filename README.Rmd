@@ -110,14 +110,16 @@ summary(pool(fit), conf.int = TRUE)
 Analogously, Monte Carlo errors can be computed using the `summary()` and `mcerror()` functions:
 
 ```{r}
-summary(mcerror(fit), conf.int = TRUE)
+summary(mcerror(fit, conf.int = TRUE))
 ```
+
+Please note that with `mcerror()` we need to use the argument `conf.int = TRUE` in the inner function, as we need to compute confidence intervals for each jackknife replicate.
 
 Calling just `pool()` and `mcerror()` returns a larger set of imputation statistics:
 
 ```{r}
 pool(fit)
-mcerror(fit)
+mcerror(fit, conf.int = TRUE)
 ```
 
 Compare this with results from Stata (displayed above) and see that they _should_ be the same!
